@@ -7,7 +7,7 @@
  * or with multiple single-site installations.
  * 
  * @author Christopher Roussel <christopher@impleri.net>
- * @version 0.2 Created on 2 February 2013
+ * @version 0.2.1 Created on 2 February 2013
  * @license CC0
  * @license http://creativecommons.org/licenses/CC0/1.0/
  */
@@ -118,7 +118,7 @@ else {
 				}
 				
 				// add aliases
-				_search_site($site_root, $options);
+				_search_site($single_root, $options);
 			}
 			closedir($dh);
 		}
