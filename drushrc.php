@@ -3,65 +3,27 @@
  * Magic Drush Aliases
  * 
  * This will magically add all /sites/ directories within Drupal installations
- * to Drush's alias path setting. This can be used for mutlisite installations
- * or with multiple single-site installations.
+ * to Drush's alias path setting. This can be used for both single and multisite
+ * installations.
  * 
  * @author Christopher Roussel <christopher@impleri.net>
- * @version 0.2.1 Created on 2 February 2013
+ * @version 0.3 Created on 2 February 2013
  * @license CC0
  * @license http://creativecommons.org/licenses/CC0/1.0/
  */
  
 /**
- * Multisite example:
- * You use Drupal Multisite for many different locations. Drupal is installed at
- * /var/www/vhosts/drupal. The settings below will look at every sites directory
- * except /all and set each as an alias path. That way, Site-specific Drush aliases 
- * can live in sites/example.com, sites/default.net, and sites/somewhere.org. Each
- * sites folder can be a separate git repo without knowing the existence of other
- * sites (great for separate development projects within the same organisation!).
- * Additionally, this will also check the current path and set the Drupal site URL 
- * if you are working within a specific site (to save having to use the @ alias or
- * the -l options in Drush).
- *
- * Multiple single-site example:
- * You use individual Drupal installations for many different locations. Most 
- * directories within /var/www/vhosts are separate Drupal installations (e.g. 
- * /var/www/vhosts/example.com and /var/www/vhosts/somewhere.org). By setting
- * $multi_root to false, the below script will recurse through each directory
- * within /var/www/vhosts and check for a sites directory and then act similar
- * to the Multisite example above by recursing through each directory within /sites/
- * and adding them to Drush's site alias. This is so you can use Multisite for
- * development purposes (e.g. a development, staging, and production site).
- * Additionally, this will check the current path and set the Drupal root and 
- * site URL if you are working within a specific directory (again, to save having
- * to use the @ alias, -l option, and -r option in Drush).
- */
-
-/**
  * Base Root Path
- * This is the directory **ABOVE** the Drupal installation root
+ * This is the path to your Drupal installation(s). In the case of a single
+ * Drupal installation, this should be that path. In the case of multiple Drupal
+ * installations, this should be the directory in which all the Drupal
+ * installations are found.
  * @var string
  */
 $path = '/var/www/vhosts';
 
-/**
- * Multisite Root Path
- * The directory to the multisite Drupal installation
- * Set to false to recurse through directories within $path (above)
- * @var string|boolean
- */
-$multi_root = $path . '/drupal';
-
 // Set other Drush variables here
-
-/**
- * Drush DB Dump Directory
- * This is the Drush dump directory
- * For simplicity's sake, this should be outside of the drupal installation root
- * @var string
- */
-$options['dump-dir'] = $path . '/backup';
+// $options['dump-dir'] = '~/.drush/backups';
 
 
 // Do not edit below this line
@@ -97,15 +59,15 @@ function _search_site ($dir, &$options) {
 	}
 }
 
-// add multisite folders to alias path
-if ($multi_root) {
-	$options['r'] = $multi_root;
+// check to see if we're in a multisite to save time
+if (is_dir($path . '/sites')) {
+	$options['r'] = $path;
 
 	// add aliases
-	_search_site($multi_root, $options);
+	_search_site($path, $options);
 }
 
-// add multi single-install folders to alias path
+// otherwise go the long way
 else {
 	if (is_dir($path)) {
 		if ($dh = opendir($path)) {
