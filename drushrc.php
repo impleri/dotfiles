@@ -4,10 +4,11 @@
  * 
  * This will magically add all /sites/ directories within Drupal installations
  * to Drush's alias path setting. This can be used for both single and multisite
- * installations.
+ * installations. It will also set the Drupal root and site according to the 
+ * current working directory.
  * 
  * @author Christopher Roussel <christopher@impleri.net>
- * @version 0.3 Created on 2 February 2013
+ * @version 0.4 Created on 5 February 2013
  * @license CC0
  * @license http://creativecommons.org/licenses/CC0/1.0/
  */
@@ -22,8 +23,22 @@
  */
 $path = '/var/www/vhosts';
 
+/**
+ * Default Site Regex
+ * Use this to define a default site by regular expression. If you are not within
+ * a Drupal site folder but are within a Drupal installation, this will magically
+ * assign a site which matches the regex as the Drupal URL.
+ * Example: You use example.local for testing. Normally, you will have to be in
+ * /path/to/drupal/sites/example.local in order for you to use drush without 
+ * specifying the example.local site. However, this will allow you to use drush
+ * from anywhere within /path/to/drupal without specifying the example.local site
+ * unless you are in anoter sites directory (e.g. /path/to/drupal/sites/example.com)
+ * @var string
+ */
+$default_site = '\.local';
+
 // Set other Drush variables here
-// $options['dump-dir'] = '~/.drush/backups';
+ // $options['dump-dir'] = $path . '/backups';
 
 
 // Do not edit below this line
@@ -36,7 +51,7 @@ $path = '/var/www/vhosts';
  * @param string $dir The Drupal installation root directory to search
  * @param array $options The Drush $options variable
  */
-function _search_site ($dir, &$options) {
+function _search_site ($dir, &$options, $default_site=false) {
 	$sites_dir = $dir . '/sites';
 	if (is_dir($sites_dir)) {
 		if ($dh = opendir($sites_dir)) {
@@ -44,9 +59,10 @@ function _search_site ($dir, &$options) {
 			while (($site = readdir($dh)) !== false) {
 				$site_path = $sites_dir . '/' . $site;
 				
-				if ($site != 'all' && is_dir($site_path)) {
-					// test to see if we are in this site directory and set the Drush URL
-					if (strpos($current_path, $site_path) !== false) {
+				if (!in_array($site, array('all', '.', '..')) && is_dir($site_path)) {
+					// test to see if we are in a root with a site that matches the default site regex pattern and set that local site as the Drush URL
+					$regex_match = (strpos($site_path, $options['r']) !== false && preg_match('/' . $default_site . '/', $site) == 1);
+					if ($regex_match && empty($options['l'])) {
 						$options['l'] = $site;
 					}
 				
@@ -64,7 +80,7 @@ if (is_dir($path . '/sites')) {
 	$options['r'] = $path;
 
 	// add aliases
-	_search_site($path, $options);
+	_search_site($path, $options, $default_site);
 }
 
 // otherwise go the long way
@@ -80,10 +96,15 @@ else {
 				}
 				
 				// add aliases
-				_search_site($single_root, $options);
+				_search_site($single_root, $options, $default_site);
 			}
 			closedir($dh);
 		}
 	}
+}
+
+// finally set Drupal site to default if we've got nothing
+if (empty($options['l'])) {
+	$options['l'] = 'default';
 }
 
