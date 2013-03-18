@@ -1,0 +1,30 @@
+[apply]
+	whitespace = fix
+
+[core]
+	autocrlf = true
+	filemode = false
+	excludesfile = ~/.gitignore
+
+[gui]
+	warndetachedcommit = true
+
+[push]
+	default = current
+
+[url "git@github.com:impleri/"]
+    insteadOf = gh:
+
+[alias]
+	s = status
+	g = pull --ff-only
+	m = merge --no-ff
+	co = checkout
+	a = add
+	c = commit -m
+	p = push
+	ba = branch -va
+	fest = flow feature start
+	fefi = flow feature finish
+	fep = flow feature publish
+

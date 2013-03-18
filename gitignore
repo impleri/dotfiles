@@ -1,0 +1,40 @@
+# Eclipse
+*.pydevproject
+.project
+.metadata
+/bin/**
+/tmp/**
+/tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+*~
+
+# Kdevelop
+.kdev4
+*.kdev4
+
+#SASS
+.sass-cache
+.scss-cache
+
+# Upstream sources
+/sources
+/contrib
+
+# Cache directories
+/cache
+/administrator/cache
+
+# Drupal local sites
+sites/*.lan
+sites/default

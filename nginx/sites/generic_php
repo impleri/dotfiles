@@ -1,17 +1,7 @@
 server {
     server_name example.com;
-    root /home/idnet/public_html;
-
-    access_log /var/log/nginx/$host-access.log;
-    error_log /var/log/nginx/$host-error.log;
 
     include apps/global.conf;
-
-    # php-fpm
-    location ~ \.php$ {
-        include fastcgi_params;
-        fastcgi_intercept_errors on;
-        fastcgi_pass phpcgi;
-    }
+    include apps/php.conf;
 }
 
