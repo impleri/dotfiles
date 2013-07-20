@@ -1,30 +1,39 @@
+[gui]
+	warndetachedcommit = true
 [apply]
 	whitespace = fix
-
 [core]
 	autocrlf = true
 	filemode = false
 	excludesfile = ~/.gitignore
 
-[gui]
-	warndetachedcommit = true
+[alias]
+	a = add
+	b = branch
+	ba = branch -va
+	c = commit -m
+	cb = checkout -b
+	co = checkout
+	f = fetch
+	ff = pull --ff-only
+	g = gui
+	m = merge --no-ff
+	p = push
+	r = pull --rebase
+	s = status
+	sa = stash apply
+	sf = svn fetch
+	sp = svn dcommit
+	sr = svn rebase
+	ss = stash
+	u = branch --set-upstream
+
+	fest = flow feature start
+	fefi = flow feature finish
+	fep = flow feature publish
 
 [push]
 	default = current
 
 [url "git@github.com:impleri/"]
     insteadOf = gh:
-
-[alias]
-	s = status
-	g = pull --ff-only
-	m = merge --no-ff
-	co = checkout
-	a = add
-	c = commit -m
-	p = push
-	ba = branch -va
-	fest = flow feature start
-	fefi = flow feature finish
-	fep = flow feature publish
-

@@ -23,18 +23,18 @@ local.properties
 .kdev4
 *.kdev4
 
-#SASS
-.sass-cache
-.scss-cache
+#Netbeans
+nbproject
 
 # Upstream sources
 /sources
 /contrib
 
-# Cache directories
-/cache
-/administrator/cache
-
 # Drupal local sites
 sites/*.lan
+sites/local.*
 sites/default
+
+#SASS
+.sass-cache
+.scss-cache
