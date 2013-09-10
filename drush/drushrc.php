@@ -21,8 +21,7 @@ $options['shell-aliases']['sup'] = 'pm-update --security-only';
  * of a single Drupal installation, this should be that path. 
  * In the case of multiple Drupal installations, this should be 
  * the directory in which all the Drupal installations are found.
- * @var string (default: /var/www/vhosts)
- * @todo Allow setting multiple paths
+ * @var array (default: /var/www/vhosts)
  */
 $path = false;
 

@@ -20,9 +20,11 @@ class DrushMagicAliases
 {
 	/**
 	 * Base Root Path
-	 * @var string
+	 * @var array
 	 */
-	private $path = '/var/www/vhosts';
+	private $path = array(
+		'/var/www/vhosts'
+	);
 
 	/**
 	 * Local Site Regex
@@ -77,17 +79,31 @@ class DrushMagicAliases
 		$this->load();
 	}
 
+	/**
+	 * Loader
+	 *
+	 * Loops through paths provided and searches them for Drupal installations.
+	 */
 	public function load ()
 	{
-		// check to see if path is a single Drupal installation root
-		if (is_dir($this->path . '/sites')) {
-			$this->searchRoot($this->path);
-		}
-		else {
-			$this->processDir($this->path);
+		foreach ($this->path as $path) {
+			// check to see if path is a single Drupal installation root
+			if (is_dir($path . '/sites')) {
+				$this->searchRoot($path);
+			}
+			else {
+				$this->processDir($path);
+			}
 		}
 	}
 
+	/**
+	 * Process Directory
+	 *
+	 * Given a $path, this method will check each subdirectory 
+	 * (non-recursively) for a Drupal installation.
+	 * @param  string $path Directory path to process
+	 */
 	protected function processDir ($path)
 	{
   		if (is_dir($path)) {
