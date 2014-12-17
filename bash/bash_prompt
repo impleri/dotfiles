@@ -1,0 +1,13 @@
+PX=$BYellow
+NC=$BCyan
+HV=$BGreen
+AA=$BPurple
+CY=$BBlue
+
+_setBashPrompt() {
+    if [ "`id -u`" -eq 0 ]; then
+        PS1="\[$BRed\]\d \t \u@\[$THIS_MACHINE\]\H\n\[$Color_Off\][\[$BRed\]\w\[$Color_Off\]:\[$BBlue\]\#\[$Color_Off\]]# "
+    else
+        PS1="\[$THIS_MACHINE\]\d \t \u@\H\n\[$Color_Off\][\[$BGreen\]\w\[$Color_Off\]:\[$BBlue\]\#\[$Color_Off\]]\$ "
+    fi
+}

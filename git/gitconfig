@@ -1,12 +1,16 @@
+[user]
+	name = "Christopher Roussel"
+	email = "christopher@impleri.net"
 [gui]
 	warndetachedcommit = true
 [apply]
 	whitespace = fix
 [core]
-	autocrlf = true
+	autocrlf = false
 	filemode = false
 	excludesfile = ~/.gitignore
-
+[diff]
+	renamelimit = 9000000
 [alias]
 	a = add
 	b = branch
@@ -37,3 +41,9 @@
 
 [url "git@github.com:impleri/"]
     insteadOf = gh:
+
+[url "git@impleri.org"]
+    insteadOf = io
+
+[url "git@git.c4tech.com"]
+    insteadOf = c4

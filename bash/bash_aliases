@@ -1,0 +1,40 @@
+# personal bash stuff
+
+# Define system-wide colours
+if [ -f ~/.bash_colours ]; then
+    . ~/.bash_colours
+fi
+
+# Configure prompt
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+    THIS_MACHINE=$AA
+    _setBashPrompt
+fi
+
+# Custom bash completions
+if [ -f ~/.bash_completion ]; then
+    . ~/.bash_completion
+fi
+
+# Set up path
+export PATH=${PATH}:${HOME}/workspace/android/sdk/platform-tools
+export PATH=${PATH}:${HOME}/workspace/android/sdk/tools
+export PATH=${PATH}:${HOME}/.bin
+
+# Custom aliases
+alias ll='ls -lh'
+alias la='ls -ah'
+alias df='df -h'
+alias su='su -l'
+alias g='git'
+alias d='drush'
+alias s='sow'
+alias v='vagrant'
+alias texclean='rm *.backup *.run.xml *.log *.aux *-blx.bib *.dvi'
+alias bfg='java -jar bfg.jar'
+
+# Work aliases
+if [ -f ~/.c4_aliases ]; then
+    . ~/.c4_aliases
+fi

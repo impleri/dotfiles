@@ -1,3 +1,4 @@
 [
-	{ "keys": ["shift+f12"], "command": "goto_definition" },
+	{"keys": ["shift+f12"], "command": "goto_definition" },
+    {"keys": ["ctrl+shift+r"], "command": "reindent" , "args": {"single_line": false}}
 ]
