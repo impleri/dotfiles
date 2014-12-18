@@ -1,4 +1,11 @@
 [
 	{"keys": ["shift+f12"], "command": "goto_definition" },
-    {"keys": ["ctrl+shift+r"], "command": "reindent" , "args": {"single_line": false}}
+    {"keys": ["ctrl+shift+r"], "command": "reindent" , "args": {"single_line": false}},
+    {"keys": ["alt+shift+f6"], "command": "xdebug_breakpoint"},
+    {"keys": ["ctrl+shift+f5"], "command": "xdebug_continue", "args": {"command": "run"}},
+    {"keys": ["ctrl+shift+f6"], "command": "xdebug_continue", "args": {"command": "step_into"}},
+    {"keys": ["ctrl+shift+f7"], "command": "xdebug_continue", "args": {"command": "step_out"}},
+    {"keys": ["ctrl+shift+f8"], "command": "xdebug_continue", "args": {"command": "step_over"}},
+    {"keys": ["f9"], "command": "xdebug_session_start"},
+    {"keys": ["f10"], "command": "xdebug_session_stop", "args": {"close_windows": true}}
 ]

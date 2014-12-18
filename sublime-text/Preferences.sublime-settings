@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/Colorsublime/Vibrant_Ink.tmTheme",
 	"default_line_ending": "unix",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
@@ -47,12 +47,13 @@
 		".vagrant"
 	],
 	"font_size": 12,
+	"gutter": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		"JSLint",
-		"Vintage"
+		"Vintage",
+		"Markdown"
 	],
+	"line_numbers": true,
 	"rulers":
 	[
 		80
