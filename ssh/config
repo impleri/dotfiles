@@ -1,5 +1,5 @@
-
+Protocol 2
 ControlMaster auto
 ControlPath ~/.ssh/controlmasters/mux_%r@%h:%p
 ControlPersist 1h
-
+GSSAPIAuthentication no

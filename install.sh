@@ -59,7 +59,7 @@ if [-d $MY_SSH]
     mkdir $MY_SSH
 fi
 mkdir ~/.ssh/controlmasters
-ln -s $YO_SSH/ssh_config $MY_SSH/ssh_config
+ln -s $YO_SSH/config $MY_SSH/config
 
 # Set up Sublime Text
 if [-d $MY_SUBL]
