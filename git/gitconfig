@@ -6,24 +6,27 @@
 [apply]
 	whitespace = fix
 [core]
-	autocrlf = false
+	autocrlf = input
 	filemode = false
 	excludesfile = ~/.gitignore
 [diff]
 	renamelimit = 9000000
 [alias]
-	a = add
+	a = add --all
 	b = branch
 	ba = branch -va
 	c = commit -m
 	cb = checkout -b
 	co = checkout
-	f = fetch
+	f = fetch --prune
 	ff = pull --ff-only
 	g = gui
 	m = merge --no-ff
+	ms = merge --squash
 	p = push
 	r = pull --rebase
+	rp = remote prune
+	rs = remote show
 	s = status
 	sa = stash apply
 	sf = svn fetch
@@ -31,19 +34,23 @@
 	sr = svn rebase
 	ss = stash
 	u = branch --set-upstream
+	url = remote set-url origin
 
 	fest = flow feature start
 	fefi = flow feature finish
-	fep = flow feature publish
+	fepub = flow feature publish
+	hotst = flow hotfix start
+	hotfi = flow hotfix finish
+	hotpub = flow hotfix publish
 
 [push]
-	default = current
+	default = simple
 
 [url "git@github.com:impleri/"]
     insteadOf = gh:
 
-[url "git@impleri.org"]
-    insteadOf = io
+[url "git@impleri.org:"]
+    insteadOf = io:
 
-[url "git@git.c4tech.com"]
-    insteadOf = c4
+[url "git@git.c4tech.com:"]
+    insteadOf = c4:
