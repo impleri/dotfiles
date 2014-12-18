@@ -42,6 +42,7 @@ composer global require phpunit/phpunit
 composer global require squizlabs/php_codesniffer
 composer global require fabpot/php-cs-fixer
 composer global require phpmd/phpmd
+composer global require drush/drush
 
 # Set up node
 wget http://nodejs.org/dist/v0.10.34/node-v0.10.34-linux-x64.tar.gz
