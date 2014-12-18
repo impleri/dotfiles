@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# example: generate-aliases my mysite mysite.net
+
+ALIAS="$1"
+PHP=`which php`
+SITEPATH="$2"
+SITEURL="$3"
+
+if [ -z $ALIAS ]
+then
+  ALIAS=${PWD##*/}
+fi
+
+if [ -z $SITEPATH ]
+then
+  SITEPATH=${PWD##*/}
+fi
+
+if [ -z $SITEURL ]
+then
+  SITEURL="$SITEPATH.com"
+fi
+
+### EDIT THESE TO FIT YOUR SCHEMA
+# The path to the Drupal root (should incorporate $SITEPATH)
+DRUPALPATH="var/www/$SITEPATH"
+
+# The path to the main Drupal site (should incorporate $SITEURL)
+MAINPATH="$DRUPALPATH/sites/$SITEURL"
+
+# The path to the local site (should incorporate $SITEURL)
+LOCALPATH="$DRUPALPATH/sites/local.$SITEURL"
+
+# The path to the generator settings for the current site
+SETTINGSPATH="$DRUPALPATH/$SITEPATH/contrib/generator.settings.php"
+
+## DONT EDIT PAST HERE
+
+# Filenames
+ALIASFILE="$ALIAS.aliases.drushrc.php"
+CONFIGFILE="settings.php"
+
+# Make the site directories
+mkdir -p "$MAINPATH"
+mkdir -p "$LOCALPATH"
+
+# Generate the global aliases into the dev directory
+$PHP ~/.bin/generator.php "$SETTINGSPATH" > "$MAINPATH/$ALIASFILE"
+
+# Generate the local aliases
+$PHP ~/.bin/local.generator.php $SITEPATH $DRUPALPATH "alias" > "$LOCALPATH/$ALIASFILE"
+
+# Generate the local settings file
+$PHP ~/.bin/local.generator.php $SITEPATH $DRUPALPATH "settings" > "$LOCALPATH/$CONFIGFILE"
+
