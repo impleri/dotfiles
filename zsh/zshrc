@@ -45,11 +45,16 @@ ZSH_CUSTOM=~/.its-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(bower composer common-aliases git git-flow last-working-dir npm sublime vagrant wd)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/christopher/workspace/android/sdk/platform-tools:/home/christopher/workspace/android/sdk/tools:/home/christopher/.bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="$PATH:${HOME}/workspace/android/sdk/platform-tools"
+export PATH="$PATH:${HOME}/workspace/android/sdk/tools"
+export PATH="$PATH:${HOME}/.bin"
+export PATH="$PATH:${HOME}/.composer/vendor/bin"
+export PATH="$PATH:${HOME}/.nodejs/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

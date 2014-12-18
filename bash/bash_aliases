@@ -8,8 +8,9 @@ fi
 # Configure prompt
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
-    THIS_MACHINE=$AA
-    _setBashPrompt
+    if [ -f ~/.bash_set_prompt ]; then
+        . ~/.bash_set_prompt
+    fi
 fi
 
 # Custom bash completions
@@ -21,6 +22,8 @@ fi
 export PATH=${PATH}:${HOME}/workspace/android/sdk/platform-tools
 export PATH=${PATH}:${HOME}/workspace/android/sdk/tools
 export PATH=${PATH}:${HOME}/.bin
+export PATH=$PATH:${HOME}/.composer/vendor/bin
+export PATH=$PATH:${HOME}/.nodejs/bin
 
 # Custom aliases
 alias ll='ls -lh'

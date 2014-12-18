@@ -69,17 +69,19 @@ bureau_git_prompt () {
 }
 
 
-_PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
-
 if [[ $EUID -eq 0 ]]; then
   _USERNAME="%{$fg_bold[red]%}%n"
   _LIBERTY="%{$fg_bold[red]%}#"
+  _PATH="%{$fg_bold[red]%}"
+
 else
-  _USERNAME="%{$fg_bold[white]%}%n"
+  _USERNAME="%{$fg_bold[green]%}%n"
   _LIBERTY="%{$fg_bold[green]%}$"
+  _PATH="%{$fg_bold[green]%}"
 fi
-_USERNAME="$_USERNAME%{$reset_color%}%{$fg_bold[green]%}@%{$reset_color%}$_HOSTNAME"
+_USERNAME="$_USERNAME%{$reset_color%}%{$fg_bold[white]%}@%{$reset_color%}%{$reset_color%}$_HOSTNAME"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
+_PATH="$_PATH%~%{$reset_color%}"
 
 
 get_space () {
