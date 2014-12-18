@@ -1,0 +1,25 @@
+{
+	"installed_packages":
+	[
+		"Auto Semi-Colon",
+		"Better CoffeeScript",
+		"DocBlockr",
+		"HTML-CSS-JS Prettify",
+		"JavaScript and jQuery API Completions",
+		"JsFormat",
+		"Laravel 4 Artisan",
+		"Laravel 4 Snippets",
+		"Laravel Blade Highlighter",
+		"LaTeXSQ",
+		"List stylesheet variables",
+		"MarkdownEditing",
+		"Package Control",
+		"Phpcs",
+		"PHPUnit Completions",
+		"Puppet",
+		"SassBeautify",
+		"Stylus",
+		"Syntax Highlighting for Sass",
+		"Xdebug Client"
+	]
+}
