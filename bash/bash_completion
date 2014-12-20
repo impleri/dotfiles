@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Simple bash completion for file paths
 _rfilecomp() {
     local cur opts myfilepath

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 PX=$BYellow
 NC=$BCyan
 HV=$BGreen
