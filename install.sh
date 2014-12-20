@@ -63,8 +63,6 @@ echo "\033[1;35mConfiguring ZSH...\033[0m"
 chsh -s `which zsh`
 ln -s "$YO_ZSH/zshrc" "$MY_HOME/.zshrc"
 ln -s "$YO_ZSH" "$MY_ZSH"
-env zsh
-. "$MY_HOME/.zshrc"
 
 # Set up .bin
 echo "\033[0;37mCreating local executables...\033[0m"
@@ -109,3 +107,5 @@ env git clone "$HOMESTEAD_REPO" "$MY_HOMESTEAD"
 vagrant box add laravel/homestead
 
 echo 'Setup complete'
+
+env zsh
