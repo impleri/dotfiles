@@ -10,8 +10,8 @@ _rfilecomp() {
     else
       myfilefilter=*
     fi
-    opts=$(cd $myfilepath ; ls -f $myfilefilter)
-    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+    opts=`cd $myfilepath ; ls -f $myfilefilter`
+    COMPREPLY=`compgen -W "${opts}" -- ${cur}`
 }
 
 # Simplebash completion for directory paths
@@ -19,6 +19,6 @@ _rdircomp() {
     local cur opts myfilepath
     cur="${COMP_WORDS[COMP_CWORD]}"
     myfilepath=$1
-    opts=$(cd $myfilepath ; ls -d */)
-    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+    opts=`cd $myfilepath ; ls -d */`
+    COMPREPLY=`compgen -W "${opts}" -- ${cur}`
 }
