@@ -11,33 +11,72 @@ YO_SSH="$YO/ssh"
 YO_SUBL="$YO/sublime-text"
 
 # Target paths
-MY_HOME="~"
+MY_HOME="$HOME"
+if [ -z "$MY_HOME" ]
+    MY_HOME="~"
+fi
 MY_BIN="$MY_HOME/.bin"
 MY_ZSH="$MY_HOME/.its-my-zsh"
 MY_NODE="$MY_HOME/.nodejs"
 MY_SSH="$MY_HOME/.ssh"
-MY_SUBL="$MY_HOME/.config/sublime-text-3/Packages"
+MY_SUBL="$MY_HOME/.config/sublime-text-3"
+MY_SUBL_INS="$MY_SUBL/Installed\ Packages"
+MY_SUBL_PKG="$MY_SUBL/Packages"
+MY_HOMESTEAD="$MY_HOME/.homestead"
+
+# Other variables
+NODEJS_VERSION="0.10.34"
+HOMESTEAD_REPO="c4:web/homestead.git"
+
+echo "\033[1;36mUserland Configuration and More...\033[0m"
+
+# Set up SSH
+echo "\033[0;33mSetting up SSH...\033[0m"
+if [ ! -d "$MY_SSH" ]
+    mkdir "$MY_SSH"
+fi
+mkdir "$MY_SSH/controlmasters"
+ln -s "$YO_SSH/config" "$MY_SSH/config"
+
+# Set up git
+echo "\033[0;35mConfiguring git...\033[0m"
+ln -s "$YO_GIT/gitignore" "$MY_HOME/.gitignore"
+ln -s "$YO_GIT/gitconfig" "$MY_HOME/.gitconfig"
+
 
 # Install BASH aliases (in case ZSH isn't available)
-ln -s $YO_BASH/bash_aliases $MY_HOME/.bash_aliases
-ln -s $YO_BASH/bash_completion $MY_HOME/.bash_completion
-ln -s $YO_BASH/bash_colours $MY_HOME/.bash_colours
-ln -s $YO_BASH/bash_prompt $MY_HOME/.bash_prompt
+echo "\033[0;33mSetting up BASH aliases...\033[0m"
+ln -s "$YO_BASH/bash_aliases" "$MY_HOME/.bash_aliases"
+ln -s "$YO_BASH/bash_completion" "$MY_HOME/.bash_completion"
+ln -s "$YO_BASH/bash_colours" "$MY_HOME/.bash_colours"
+ln -s "$YO_BASH/bash_prompt" "$MY_HOME/.bash_prompt"
 
-# Install ZSH
+
+# Setup ZSH
+echo "\033[0;32mCloning Oh My Zsh...\033[0m"
+if [ ! -n "$ZSH" ]; then
+  ZSH=~/.oh-my-zsh
+fi
+env git clone https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
+
+echo "\033[1;35mConfiguring ZSH...\033[0m"
 chsh -s `which zsh`
-ln -s $YO_ZSH/zshrc $MY_HOME/.zshrc
-ln -s $YO_ZSH $MY_ZSH
+ln -s "$YO_ZSH/zshrc" "$MY_HOME/.zshrc"
+ln -s "$YO_ZSH" "$MY_ZSH"
+env zsh
+. "$MY_HOME/.zshrc"
 
 # Set up .bin
-if [-d $MY_BIN]
-    mkdir $MY_BIN
+echo "\033[0;37mCreating local executables...\033[0m"
+if [ ! -d "$MY_BIN" ]
+    mkdir "$MY_BIN"
 fi
-ln -s $YO/drush/backport $MY_BIN/backport
+ln -s "$YO/drush/backport" "$MY_BIN/backport"
 
 # Set up composer
+echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
-mv composer $MY_BIN
+mv composer "$MY_BIN"
 composer global require phpunit/phpunit
 composer global require squizlabs/php_codesniffer
 composer global require fabpot/php-cs-fixer
@@ -45,31 +84,28 @@ composer global require phpmd/phpmd
 composer global require drush/drush
 
 # Set up node
-wget http://nodejs.org/dist/v0.10.34/node-v0.10.34-linux-x64.tar.gz
-tar xzf node-v0.10.34-linux-x64.tar.gz
-mv node-v0.10.34-linux-x64 $MY_NODE
-rm node-v0.10.34-linux-x64.tar.gz
+echo "\033[0;32mInstalling NodeJS into userland and global Node packages...\033[0m"
+wget "http://nodejs.org/dist/v$NODEJS_VERSION/node-v$NODEJS_VERSION-linux-x64.tar.gz"
+tar xzf "node-v$NODEJS_VERSION-linux-x64.tar.gz"
+rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
 npm -g install bower brunch coffee-script coffeelint jshint mocha nib sow stylus
 
-# Set up git
-ln -s $YO_GIT/gitignore $MY_HOME/.gitignore
-ln -s $YO_GIT/gitconfig $MY_HOME/.gitconfig
-
-# Set up SSH
-if [-d $MY_SSH]
-    mkdir $MY_SSH
-fi
-mkdir ~/.ssh/controlmasters
-ln -s $YO_SSH/config $MY_SSH/config
-
 # Set up Sublime Text
-if [-d $MY_SUBL]
-    mkdir -p $MY_SUBL
-    mkdir -p $MY_SUBL/User
-    mkdir -p $MY_SUBL/Colorsublime
+echo "\033[0;35mConfiguring Sublime Text...\033[0m"
+if [ ! -d "$MY_SUBL" ]
+    mkdir -p "$MY_SUBL_INS"
+    mkdir -p "$MY_SUBL_INS/Colorsublime"
+    mkdir -p "$MY_SUBL_PKG"
+    mkdir -p "$MY_SUBL_PKG/User"
 fi
-ln -s $YO_SUBL/*.sublime-* $MY_SUBL/User/
-wget http://colorsublime.com/theme/download/27550 -O $MY_SUBL/Colorsublime/Vibrant-Ink.tmTheme
+
+wget "https://sublime.wbond.net/Package%20Control.sublime-package" -O "$MY_SUBL_INS/Package\ Control.sublime-package"
+wget "http://colorsublime.com/theme/download/27550" -O "$MY_SUBL_INS/Colorsublime/Vibrant-Ink.tmTheme"
+ln -s "$YO_SUBL/*.sublime-*" "$MY_SUBL_PKG/User/"
+
+# Set up Homestead
+echo "\033[1;32mInstalling Homestead...\033[0m"
+env git clone "$HOMESTEAD_REPO" "$MY_HOMESTEAD"
+vagrant box add laravel/homestead
 
 echo 'Setup complete'
-echo 'Remember to install vagrant and virtualbox'

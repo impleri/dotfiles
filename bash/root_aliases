@@ -1,0 +1,19 @@
+# personal bash stuff
+
+# Define system-wide colours
+if [ -f ~/.bash_colours ]; then
+    . ~/.bash_colours
+fi
+
+# Configure prompt
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+    if [ -f ~/.bash_set_prompt ]; then
+        . ~/.bash_set_prompt
+    fi
+fi
+
+# Custom aliases
+alias ll='ls -lh'
+alias la='ls -ah'
+alias df='df -h'
