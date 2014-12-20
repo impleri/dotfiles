@@ -9,7 +9,7 @@ YO_ZSH="$YO/zsh"
 
 # Target paths
 MY_HOME="$HOME"
-if [ -z "$MY_HOME" ]
+if [ -z "$MY_HOME" ]; then
     MY_HOME="/root"
 fi
 MY_ZSH="$MY_HOME/.its-my-zsh"
