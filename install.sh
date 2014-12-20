@@ -50,7 +50,7 @@ ln -s "$YO_BASH/bash_aliases" "$MY_HOME/.bash_aliases"
 ln -s "$YO_BASH/bash_completion" "$MY_HOME/.bash_completion"
 ln -s "$YO_BASH/bash_colours" "$MY_HOME/.bash_colours"
 ln -s "$YO_BASH/bash_prompt" "$MY_HOME/.bash_prompt"
-
+. "$MY_HOME/.bash_aliases"
 
 # Setup ZSH
 echo "\033[0;32mCloning Oh My Zsh...\033[0m"
