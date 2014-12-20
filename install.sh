@@ -12,7 +12,7 @@ YO_SUBL="$YO/sublime-text"
 
 # Target paths
 MY_HOME="$HOME"
-if [ -z "$MY_HOME" ]
+if [ -z "$MY_HOME" ]; then
     MY_HOME="~"
 fi
 MY_BIN="$MY_HOME/.bin"
@@ -32,7 +32,7 @@ echo "\033[1;36mUserland Configuration and More...\033[0m"
 
 # Set up SSH
 echo "\033[0;33mSetting up SSH...\033[0m"
-if [ ! -d "$MY_SSH" ]
+if [ ! -d "$MY_SSH" ]; then
     mkdir "$MY_SSH"
 fi
 mkdir "$MY_SSH/controlmasters"
@@ -68,7 +68,7 @@ env zsh
 
 # Set up .bin
 echo "\033[0;37mCreating local executables...\033[0m"
-if [ ! -d "$MY_BIN" ]
+if [ ! -d "$MY_BIN" ]; then
     mkdir "$MY_BIN"
 fi
 ln -s "$YO/drush/backport" "$MY_BIN/backport"
@@ -92,7 +92,7 @@ npm -g install bower brunch coffee-script coffeelint jshint mocha nib sow stylus
 
 # Set up Sublime Text
 echo "\033[0;35mConfiguring Sublime Text...\033[0m"
-if [ ! -d "$MY_SUBL" ]
+if [ ! -d "$MY_SUBL" ]; then
     mkdir -p "$MY_SUBL_INS"
     mkdir -p "$MY_SUBL_INS/Colorsublime"
     mkdir -p "$MY_SUBL_PKG"
