@@ -59,7 +59,7 @@ if [ ! -n "$ZSH" ]; then
 fi
 env git clone https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
 
-echo "\033[1;35mConfiguring ZSH...\033[0m"
+echo "\033[1;35mConfiguring ZSH...Your password may be required to set zsh as default\033[0m"
 chsh -s `which zsh`
 ln -s "$YO_ZSH/zshrc" "$MY_HOME/.zshrc"
 ln -s "$YO_ZSH" "$MY_ZSH"
@@ -86,6 +86,7 @@ echo "\033[0;32mInstalling NodeJS into userland and global Node packages...\033[
 wget "http://nodejs.org/dist/v$NODEJS_VERSION/node-v$NODEJS_VERSION-linux-x64.tar.gz"
 tar xzf "node-v$NODEJS_VERSION-linux-x64.tar.gz"
 rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
+mv "node-v$NODEJS_VERSION-linux-x64" "$MY_NODE"
 npm -g install bower brunch coffee-script coffeelint jshint mocha nib sow stylus
 
 # Set up Sublime Text
