@@ -3,8 +3,7 @@
     "extensions_to_blacklist": ["blade.php"],
     "phpcs_executable_path": "/home/christopher/.composer/vendor/bin/phpcs",
     "phpcs_additional_args": {
-        "--standard": "PSR2",
-        "-n": ""
+        "--standard": "PSR2"
     },
     "php_cs_fixer_executable_path": "/home/christopher/.composer/vendor/bin/php-cs-fixer",
     "php_cs_fixer_additional_args": {
