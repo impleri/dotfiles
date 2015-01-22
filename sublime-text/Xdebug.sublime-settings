@@ -1,5 +1,5 @@
 {
-    "port": 9001,
+    "port": 9591,
     "pretty_output": false,
-    "debug": true
+    "debug": false
 }
