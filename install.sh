@@ -70,6 +70,7 @@ if [ ! -d "$MY_BIN" ]; then
     mkdir "$MY_BIN"
 fi
 ln -s "$YO/drush/backport" "$MY_BIN/backport"
+ln -s "$YO/laravel/update" "$MY_BIN/update"
 
 # Set up composer
 echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
