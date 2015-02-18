@@ -76,11 +76,13 @@ ln -s "$YO/laravel/update" "$MY_BIN/update"
 echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 mv composer "$MY_BIN"
+composer global config repositories.c4homestead vcs git@git.c4tech.com:web/homestead.git
 composer global require phpunit/phpunit
 composer global require squizlabs/php_codesniffer
 composer global require fabpot/php-cs-fixer
 composer global require phpmd/phpmd
 composer global require drush/drush
+composer global require laravel/homestead
 
 # Set up node
 echo "\033[0;32mInstalling NodeJS into userland and global Node packages...\033[0m"
@@ -88,7 +90,7 @@ wget "http://nodejs.org/dist/v$NODEJS_VERSION/node-v$NODEJS_VERSION-linux-x64.ta
 tar xzf "node-v$NODEJS_VERSION-linux-x64.tar.gz"
 rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
 mv "node-v$NODEJS_VERSION-linux-x64" "$MY_NODE"
-npm -g install bower brunch coffee-script coffeelint jshint mocha nib sow stylus
+npm -g install bower brunch coffee-script coffeelint jshint mocha nib scaffolt sow stylus
 
 # Set up Sublime Text
 echo "\033[0;35mConfiguring Sublime Text...\033[0m"

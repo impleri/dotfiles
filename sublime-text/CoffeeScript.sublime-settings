@@ -7,12 +7,12 @@
         "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
     */
-    "envPATH": "/usr/bin:/usr/local/bin",
+    "envPATH": "/usr/bin:/usr/local/bin:/home/christopher/.nodejs/bin",
     /*
         The directory containing your coffee binary. Usually
         /usr/local/bin or /usr/bin.
     */
-    "binDir": "/usr/bin"
+    "binDir": "/home/christopher/.nodejs/bin"
 
     /*
         Compile without the top-level function wrapper (coffee -b).

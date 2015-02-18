@@ -27,6 +27,7 @@ fi
 for dir in ${parent}/workbench/*/*/ ; do
     cd $dir
     package="${PWD##*/}"
+    echo ""
     echo "${color}Updating ${package}${escape}0m"
     git up
     if [ $build ]; then
