@@ -23,11 +23,15 @@ sites:
     - map: local.graybarge.com
       to: /home/vagrant/work/graybarge
       type: drupal
+    - map: local.themayflowersociety.org
+      to: /home/vagrant/work/mayflower
+      type: joomla
 
 databases:
-    - homestead
-    - nolaenl
+    - dukky
     - graybarge
+    - mayflower
+    - nolaenl
 
 variables:
     - key: APP_ENV
