@@ -54,3 +54,6 @@
 
 [url "git@git.c4tech.com:"]
     insteadOf = c4:
+
+[url "git@bitbucket.org:"]
+    insteadOf = bb:
