@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Choqok
+Exec=choqok %i -caption %c
+Icon=choqok
+Type=Application
+Categories=Network;
+GenericName=Micro-blogging Client
+Terminal=false
+X-DBUS-StartupType=Unique
+X-Ubuntu-Gettext-Domain=desktop_kdesdk
+X-XFCE-Source=file:///usr/share/applications/kde4/choqok.desktop
