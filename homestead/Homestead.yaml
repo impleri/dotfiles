@@ -15,9 +15,12 @@ folders:
       to: /home/vagrant/work
 
 sites:
-    - map: local.dukky.com
-      to: /home/vagrant/work/dukky/public
+    - map: api.local.streetcarshops.com
+      to: /home/vagrant/work/scs/backend/public
       type: laravel
+    - map: local.streetcarshops.com
+      to: /home/vagrant/work/scs/frontend/public
+      type: static
     - map: local.nolaenl.com
       to: /home/vagrant/personal/nola/public
     - map: local.graybarge.com
@@ -28,10 +31,10 @@ sites:
       type: joomla
 
 databases:
-    - dukky
     - graybarge
     - mayflower
     - nolaenl
+    - streetcars
 
 variables:
     - key: APP_ENV
