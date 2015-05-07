@@ -4,4 +4,6 @@
 # add any commands you wish to this file and they will
 # be run after the Homestead machine is provisioned.
 
-composer global require drush/drush
+sudo -u vagrant -H -i composer global require drush/drush
+
+npm -g install bower brunch

@@ -1,7 +1,7 @@
 ---
 ip: "192.168.10.10"
-memory: 2048
-cpus: 1
+memory: 4096
+cpus: 2
 
 authorize: ~/.ssh/id_rsa.pub
 
@@ -13,18 +13,22 @@ folders:
       to: /home/vagrant/personal
     - map: ~/workspace/c4tech
       to: /home/vagrant/work
-
+    - map: ~/.drush
+      to: /home/vagrant/.drush
 sites:
-    - map: api.local.streetcarshops.com
-      to: /home/vagrant/work/scs/backend/public
-      type: laravel
     - map: local.streetcarshops.com
       to: /home/vagrant/work/scs/frontend/public
       type: static
+    - map: api.local.streetcarshops.com
+      to: /home/vagrant/work/scs/backend/public
+      type: laravel
     - map: local.nolaenl.com
       to: /home/vagrant/personal/nola/public
     - map: local.graybarge.com
       to: /home/vagrant/work/graybarge
+      type: drupal
+    - map: local.ushrnetwork.org
+      to: /home/vagrant/work/ushrn
       type: drupal
     - map: local.themayflowersociety.org
       to: /home/vagrant/work/mayflower
@@ -32,6 +36,7 @@ sites:
 
 databases:
     - graybarge
+    - ushrn
     - mayflower
     - nolaenl
     - streetcars

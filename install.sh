@@ -25,7 +25,7 @@ MY_SUBL_PKG="$MY_SUBL/Packages"
 MY_HOMESTEAD="$MY_HOME/.homestead"
 
 # Other variables
-NODEJS_VERSION="0.10.35"
+NODEJS_VERSION="0.12.2"
 HOMESTEAD_REPO="c4:web/homestead.git"
 
 echo "\033[1;36mUserland Configuration and More...\033[0m"
