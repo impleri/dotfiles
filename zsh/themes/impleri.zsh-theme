@@ -3,7 +3,7 @@
 ### Host name
 typeset -A host_repr
 
-host_repr=('archangel' "%{$fg_bold[magenta]%}archangel" 'cyclops' "%{$fg_bold[blue]%}cyclops" 'lockheed' "%{$fg_bold[yellow]%}lockheed")
+host_repr=('archangel' "%{$fg_bold[magenta]%}archangel" 'cyclops' "%{$fg_bold[blue]%}cyclops" 'lockheed' "%{$fg_bold[yellow]%}lockheed" 'archangel' "%{$fg_bold[cyan]%}archangel")
 _HOSTNAME="${host_repr[$HOST]:-$HOST}%{$reset_color%}"
 
 ### Git [±master ▾●]
