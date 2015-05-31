@@ -95,14 +95,11 @@ npm -g install bower brunch coffee-script coffeelint jshint mocha nib scaffolt s
 # Set up Sublime Text
 echo "\033[0;35mConfiguring Sublime Text...\033[0m"
 if [ ! -d "$MY_SUBL" ]; then
-    mkdir -p "$MY_SUBL_INS"
-    mkdir -p "$MY_SUBL_INS/Colorsublime"
     mkdir -p "$MY_SUBL_PKG"
     mkdir -p "$MY_SUBL_PKG/User"
 fi
 
 wget "https://sublime.wbond.net/Package%20Control.sublime-package" -O "$MY_SUBL_INS/Package\ Control.sublime-package"
-wget "http://colorsublime.com/theme/download/27550" -O "$MY_SUBL_INS/Colorsublime/Vibrant-Ink.tmTheme"
 ln -s "$YO_SUBL/*.sublime-*" "$MY_SUBL_PKG/User/"
 
 # Set up Homestead
