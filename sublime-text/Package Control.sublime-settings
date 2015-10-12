@@ -14,8 +14,10 @@
 	"installed_packages":
 	[
 		"Auto Semi-Colon",
+		"Babel",
 		"Better CoffeeScript",
 		"Better Completion",
+		"CJSX Syntax",
 		"Colorsublime",
 		"DocBlockr",
 		"HTML-CSS-JS Prettify",
@@ -29,7 +31,6 @@
 		"Package Control",
 		"Phpcs",
 		"PHPUnit Completions",
-		"ReactJS",
 		"SassBeautify",
 		"Stylus",
 		"SublimeCodeIntel",
