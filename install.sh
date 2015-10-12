@@ -17,7 +17,6 @@ if [ -z "$MY_HOME" ]; then
 fi
 MY_BIN="$MY_HOME/.bin"
 MY_ZSH="$MY_HOME/.its-my-zsh"
-MY_NODE="$MY_HOME/.nodejs"
 MY_SSH="$MY_HOME/.ssh"
 MY_SUBL="$MY_HOME/.config/sublime-text-3"
 MY_SUBL_INS="$MY_SUBL/Installed\ Packages"

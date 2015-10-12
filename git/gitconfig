@@ -15,22 +15,17 @@
 	b = branch
 	ba = branch -va
 	c = commit -m
-	cb = checkout -b
 	co = checkout
 	f = fetch --prune
 	ff = pull --ff-only
 	g = gui
 	m = merge --no-ff
-	ms = merge --squash
 	p = push
 	r = pull --rebase
 	rp = remote prune
 	rs = remote show
 	s = status
 	sa = stash apply
-	sf = svn fetch
-	sp = svn dcommit
-	sr = svn rebase
 	ss = stash
 	u = branch --set-upstream
 	url = remote set-url origin
@@ -41,6 +36,9 @@
 	hotst = flow hotfix start
 	hotfi = flow hotfix finish
 	hotpub = flow hotfix publish
+    rest = flow release start
+    refi = flow release finish
+    repub = flow release publish
 
 [push]
 	default = simple
