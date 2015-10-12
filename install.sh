@@ -25,7 +25,6 @@ MY_SUBL_PKG="$MY_SUBL/Packages"
 MY_HOMESTEAD="$MY_HOME/.homestead"
 
 # Other variables
-NODEJS_VERSION="0.12.4"
 HOMESTEAD_REPO="c4:web/homestead.git"
 
 echo "\033[1;36mUserland Configuration and More...\033[0m"
@@ -74,8 +73,8 @@ ln -s "$YO/laravel/update" "$MY_BIN/update"
 
 # Set up composer
 echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
-curl -sS https://getcomposer.org/installer | php -- --filename=composer
-mv composer "$MY_BIN"
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar "$MY_BIN"
 composer global config repositories.c4homestead vcs git@git.c4tech.com:web/homestead.git
 composer global require phpunit/phpunit
 composer global require squizlabs/php_codesniffer
@@ -85,12 +84,7 @@ composer global require drush/drush
 composer global require laravel/homestead
 
 # Set up node
-echo "\033[0;32mInstalling NodeJS into userland and global Node packages...\033[0m"
-wget "http://nodejs.org/dist/v$NODEJS_VERSION/node-v$NODEJS_VERSION-linux-x64.tar.gz"
-tar xzf "node-v$NODEJS_VERSION-linux-x64.tar.gz"
-rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
-mv "node-v$NODEJS_VERSION-linux-x64" "$MY_NODE"
-npm -g install bower brunch coffee-script coffeelint jshint mocha nib scaffolt sow stylus
+./update-node.sh
 
 # Set up Sublime Text
 echo "\033[0;35mConfiguring Sublime Text...\033[0m"
@@ -99,7 +93,8 @@ if [ ! -d "$MY_SUBL" ]; then
     mkdir -p "$MY_SUBL_PKG/User"
 fi
 
-wget "https://sublime.wbond.net/Package%20Control.sublime-package" -O "$MY_SUBL_INS/Package\ Control.sublime-package"
+wget "https://packagecontrol.io/Package%20Control.sublime-package" -O "$MY_SUBL_INS/Package\ Control.sublime-package"
+wget "http://colorsublime.com/theme/download/27550" -O "$MY_SUBL_INS/Colorsublime/Vibrant-Ink.tmTheme"
 ln -s "$YO_SUBL/*.sublime-*" "$MY_SUBL_PKG/User/"
 
 # Set up Homestead

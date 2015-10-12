@@ -16,30 +16,15 @@ folders:
     - map: ~/.drush
       to: /home/vagrant/.drush
 sites:
-    - map: local.streetcarshops.com
-      to: /home/vagrant/work/scs/frontend/public
-      type: static
-    - map: api.local.streetcarshops.com
-      to: /home/vagrant/work/scs/backend/public
+    - map: api.local.rap.org
+      to: /home/vagrant/work/lphi/backend/public
       type: laravel
-    - map: local.nolaenl.com
-      to: /home/vagrant/personal/nola/public
-    - map: local.graybarge.com
-      to: /home/vagrant/work/graybarge
-      type: drupal
-    - map: local.ushrnetwork.org
-      to: /home/vagrant/work/ushrn
-      type: drupal
-    - map: local.themayflowersociety.org
-      to: /home/vagrant/work/mayflower
-      type: joomla
+    - map: local.rap.org
+      to: /home/vagrant/work/lphi/frontend/public
+      type: static
 
 databases:
-    - graybarge
-    - ushrn
-    - mayflower
-    - nolaenl
-    - streetcars
+    - lphi
 
 variables:
     - key: APP_ENV

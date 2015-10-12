@@ -45,6 +45,9 @@
 [push]
 	default = simple
 
+[url "git@github.com:"]
+    insteadOf = git:
+
 [url "git@github.com:impleri/"]
     insteadOf = gh:
 
@@ -56,3 +59,6 @@
 
 [url "git@bitbucket.org:"]
     insteadOf = bb:
+
+[url "ssh://git@github.com"]
+    insteadOf = git://github.com
