@@ -38,3 +38,7 @@ sites/default
 #SASS
 .sass-cache
 .scss-cache
+
+# Local .env files
+/.env
+*.env.local

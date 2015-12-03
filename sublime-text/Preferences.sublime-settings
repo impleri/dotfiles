@@ -50,8 +50,8 @@
 	"gutter": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Markdown"
+		"Markdown",
+		"Vintage"
 	],
 	"line_numbers": true,
 	"rulers":
