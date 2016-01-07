@@ -2,7 +2,7 @@
 
 set -e
 
-NODEJS_VERSION="4.1.1"
+NODEJS_VERSION="4.2.4"
 
 MY_HOME="$HOME"
 if [ -z "$MY_HOME" ]; then

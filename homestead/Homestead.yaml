@@ -16,15 +16,18 @@ folders:
     - map: ~/.drush
       to: /home/vagrant/.drush
 sites:
-    - map: api.local.rap.org
-      to: /home/vagrant/work/lphi/backend/public
+    - map: api.local.connectworks.goodworknetwork.org
+      to: /home/vagrant/work/gwn/backend/public
       type: laravel
-    - map: local.rap.org
-      to: /home/vagrant/work/lphi/frontend/public
+    - map: local.connectworks.goodworknetwork.org
+      to: /home/vagrant/work/gwn/frontend/public
       type: static
-
+    - map: local.themayflowersociety.org
+      to: /home/vagrant/work/mayflower
+      type: joomla
 databases:
-    - lphi
+    - gwn
+    - mayflower
 
 variables:
     - key: APP_ENV
