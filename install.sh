@@ -9,6 +9,7 @@ YO_ZSH="$YO/zsh"
 YO_GIT="$YO/git"
 YO_SSH="$YO/ssh"
 YO_SUBL="$YO/sublime-text"
+YO_HOMESTEAD="$YO/.homestead"
 
 # Target paths
 MY_HOME="$HOME"
@@ -74,7 +75,7 @@ ln -s "$YO/laravel/update" "$MY_BIN/update"
 echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar "$MY_BIN"
-composer global config repositories.c4homestead vcs git@git.c4tech.com:web/homestead.git
+composer global config repositories.c4homestead vcs "$HOMESTEAD_REPO"
 composer global require phpunit/phpunit
 composer global require squizlabs/php_codesniffer
 composer global require fabpot/php-cs-fixer
@@ -97,9 +98,9 @@ wget "http://colorsublime.com/theme/download/27550" -O "$MY_SUBL_INS/Colorsublim
 ln -s "$YO_SUBL/*.sublime-*" "$MY_SUBL_PKG/User/"
 
 # Set up Homestead
-echo "\033[1;32mInstalling Homestead...\033[0m"
-env git clone "$HOMESTEAD_REPO" "$MY_HOMESTEAD"
 vagrant box add laravel/homestead
+ln -s "$YO_HOMESTEAD" "$MY_HOMESTEAD"
+homestead up
 
 echo 'Setup complete'
 
