@@ -1,4 +1,3 @@
----
 ip: "192.168.10.10"
 memory: 4096
 cpus: 2
@@ -11,12 +10,17 @@ keys:
 folders:
     - map: ~/workspace/laravel
       to: /home/vagrant/personal
+    - map: ~/workspace/ingress
+      to: /home/vagrant/ingress
     - map: ~/workspace/c4tech
       to: /home/vagrant/work
     - map: ~/.drush
       to: /home/vagrant/.drush
 sites:
     - map: api.local.connectworks.goodworknetwork.org
+      to: /home/vagrant/work/gwn/backend/public
+      type: laravel
+    - map: local.api.connectworks.goodworknetworks.org
       to: /home/vagrant/work/gwn/backend/public
       type: laravel
     - map: local.connectworks.goodworknetwork.org

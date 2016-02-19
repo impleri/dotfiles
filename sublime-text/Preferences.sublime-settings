@@ -50,8 +50,9 @@
 	"gutter": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Markdown"
+		"Markdown",
+		"ReactJS",
+		"Vintage"
 	],
 	"line_numbers": true,
 	"rulers":

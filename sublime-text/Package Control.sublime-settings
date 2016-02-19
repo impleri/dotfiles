@@ -8,6 +8,7 @@
 			"/home/christopher/.config/sublime-text-3/Packages/User/Package Control.ca-certs/packagecontrol.io-ca.crt"
 		]
 	},
+	"ignore_vcs_packages": true,
 	"in_process_packages":
 	[
 	],
@@ -20,6 +21,8 @@
 		"CJSX Syntax",
 		"Colorsublime",
 		"DocBlockr",
+		"GitGutter",
+		"GitSavvy",
 		"HTML-CSS-JS Prettify",
 		"JsFormat",
 		"JSHint",
