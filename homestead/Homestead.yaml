@@ -17,13 +17,10 @@ folders:
     - map: ~/.drush
       to: /home/vagrant/.drush
 sites:
-    - map: api.local.connectworks.goodworknetwork.org
+    - map: api.local.goodworknetwork.org
       to: /home/vagrant/work/gwn/backend/public
       type: laravel
-    - map: local.api.connectworks.goodworknetworks.org
-      to: /home/vagrant/work/gwn/backend/public
-      type: laravel
-    - map: local.connectworks.goodworknetwork.org
+    - map: local.goodworknetwork.org
       to: /home/vagrant/work/gwn/frontend/public
       type: static
     - map: local.themayflowersociety.org
