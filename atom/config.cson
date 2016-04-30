@@ -13,16 +13,15 @@
       "source.python": [
         "BUCK"
       ]
+      "text.html.php": [
+        "php"
+      ]
     disabledPackages: [
       "tree-view"
       "linter"
     ]
     excludeVcsIgnoredPaths: true
     projectHome: "/home/christopher/workspace"
-    themes: [
-      "one-dark-ui"
-      "atom-dark-syntax"
-    ]
   editor:
     showIndentGuide: true
   "exception-reporting":
@@ -51,6 +50,8 @@
       "nuclide-objc": false
       "nuclide-ocaml": false
       "nuclide-python": false
+  "package-sync":
+    forceOverwrite: true
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
@@ -58,3 +59,7 @@
     rightEditorColor: "green"
   welcome:
     showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
