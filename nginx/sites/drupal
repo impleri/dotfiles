@@ -1,4 +1,0 @@
-server {
-    server_name example.com;
-    include apps/drupal.conf;
-}

@@ -1,7 +1,0 @@
-server {
-    server_name example.com;
-
-    include apps/global.conf;
-    include apps/php.conf;
-}
-

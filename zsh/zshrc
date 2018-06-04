@@ -45,29 +45,30 @@ ZSH_CUSTOM=~/.its-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bower composer common-aliases docker docker-compose git git-flow homestead laravel5 last-working-dir npm personal sow sublime wd)
+plugins=(bower composer common-aliases docker docker-compose dotenv git git-hubflow last-working-dir mvn npm personal sow sublime wd yarn)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-export PATH="$PATH:${HOME}/workspace/android/sdk/platform-tools"
-export PATH="$PATH:${HOME}/workspace/android/sdk/tools"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/local/games:/usr/games"
 export PATH="$PATH:${HOME}/.bin"
+export PATH="$PATH:${HOME}/Library/Python/2.7/bin"
 export PATH="$PATH:${HOME}/.composer/vendor/bin"
 export PATH="$PATH:${HOME}/.nodejs/bin"
+export PATH="$PATH:${HOME}/workspace/android/sdk/platform-tools"
+export PATH="$PATH:${HOME}/workspace/android/sdk/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
-
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='open'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

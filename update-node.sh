@@ -2,7 +2,7 @@
 
 set -e
 
-NODEJS_VERSION="4.2.4"
+NODEJS_VERSION="10.3.0"
 
 MY_HOME="$HOME"
 if [ -z "$MY_HOME" ]; then
@@ -12,9 +12,7 @@ MY_NODE="$MY_HOME/.nodejs"
 OLD_NODE="$MY_HOME/.nodejs.old"
 NODE_LIST="$MY_HOME/npm-list.txt"
 
-PACKAGES_BUILD="bower brunch coffee-script phonegap scaffolt stylus webpack"
-PACKAGES_TEST="casper-chai casperjs chai coffeelint jshint mocha mocha-casperjs phantomjs@1.9.7-15"
-PACKAGES_UTIL="nib scaffolt sow swagger-ui"
+PACKAGES="bower"
 
 if [ -d "$OLD_NODE" ]; then
     echo "\033[0;32mRemoving old backup copy of Node...\033[0m"
@@ -37,7 +35,4 @@ rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
 mv "node-v$NODEJS_VERSION-linux-x64" "$MY_NODE"
 
 echo "\033[0;32mInstalling global Node packages...\033[0m"
-npm -g install $PACKAGES_BUILD
-npm -g install $PACKAGES_UTIL
-npm -g install $PACKAGES_TEST
-
+npm -g install $PACKAGES

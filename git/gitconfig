@@ -30,16 +30,6 @@
 	u = branch --set-upstream
 	url = remote set-url origin
 
-	fest = flow feature start
-	fefi = flow feature finish
-	fepub = flow feature publish
-	hotst = flow hotfix start
-	hotfi = flow hotfix finish
-	hotpub = flow hotfix publish
-    rest = flow release start
-    refi = flow release finish
-    repub = flow release publish
-
 [push]
 	default = simple
 
@@ -49,14 +39,12 @@
 [url "git@github.com:impleri/"]
     insteadOf = gh:
 
-[url "git@impleri.org:"]
-    insteadOf = io:
-
-[url "git@git.c4tech.com:"]
-    insteadOf = c4:
-
 [url "git@bitbucket.org:"]
     insteadOf = bb:
 
-[url "ssh://git@github.com"]
-    insteadOf = git://github.com
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[git-up "fetch"]
+	prune = true
