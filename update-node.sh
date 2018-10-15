@@ -2,7 +2,7 @@
 
 set -e
 
-NODEJS_VERSION="10.3.0"
+NODEJS_VERSION="10.9.0"
 
 MY_HOME="$HOME"
 if [ -z "$MY_HOME" ]; then
@@ -12,7 +12,7 @@ MY_NODE="$MY_HOME/.nodejs"
 OLD_NODE="$MY_HOME/.nodejs.old"
 NODE_LIST="$MY_HOME/npm-list.txt"
 
-PACKAGES="bower"
+PACKAGES="flow-bin create-react-app create-react-native-app lerna"
 
 if [ -d "$OLD_NODE" ]; then
     echo "\033[0;32mRemoving old backup copy of Node...\033[0m"
