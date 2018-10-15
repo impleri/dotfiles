@@ -45,7 +45,7 @@ ZSH_CUSTOM=~/.its-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer common-aliases docker docker-compose docker-machine dotenv git git-hubflow git-flow last-working-dir npm personal sow wd yarn)
+plugins=(common-aliases docker docker-compose docker-machine dotenv git git-hubflow git-flow last-working-dir npm personal sow wd yarn)
 
 # User configuration
 
