@@ -3,8 +3,3 @@ ControlMaster auto
 ControlPath ~/.ssh/controlmasters/%n
 ControlPersist 1h
 GSSAPIAuthentication no
-
-Host edjump1
-	HostName 10.227.223.110
-        User de580546
-	IdentityFile ~/.ssh/id_geog.pem
