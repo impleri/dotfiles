@@ -5,6 +5,7 @@ set -ea
 # Source paths
 export YO=`pwd`
 export YO_BASH="$YO/bash"
+export YO_CODE="$YO/code"
 export YO_ZSH="$YO/zsh"
 export YO_GIT="$YO/git"
 export YO_SSH="$YO/ssh"
@@ -45,6 +46,10 @@ fi
 if [ ! -d "$MY_HOME" ]; then
     mkdir "$MY_BIN"
 fi
+
+echo "\033[1;35mConfiguring VS Code...\033[0m"
+mkdir -p "$MY_HOME/.config/Code/User"
+ln -s "$YO_CODE/settings.json" "$MY_HOME/.config/Code/User/settings.json"
 
 # Setup ZSH
 echo "\033[1;35mConfiguring ZSH...\033[0m"

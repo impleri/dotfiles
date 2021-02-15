@@ -1,0 +1,67 @@
+{
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 2,
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.showUpdateMessage": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "breadcrumbs.enabled": true,
+    "workbench.editor.closeOnFileDelete": true,
+    "search.smartCase": true,
+    "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "auto-close-tag.SublimeText3Mode": true,
+    "eslint.packageManager": "yarn",
+    "eslint.lintTask.enable": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "files.insertFinalNewline": true,
+    "editor.showFoldingControls": "always",
+    "editor.fontSize": 12,
+    "editor.scrollBeyondLastLine": false,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "on",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "plantuml.server": "http://localhost:8080",
+    "plantuml.urlFormat": "svg",
+    "plantuml.exportFormat": "png",
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.exportOutDir": ".",
+    "debug.allowBreakpointsEverywhere": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+    "python.languageServer": "Pylance",
+    "python.autoComplete.extraPaths": [
+        "~/.local/lib/python3.8/"
+    ],
+    "python.jediEnabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.analysis.extraPaths": [
+        "~/.local/lib/python3.8/"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.showStartPage": false
+}
