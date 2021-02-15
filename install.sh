@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ea
 
 # Source paths
 export YO=`pwd`
@@ -9,7 +9,6 @@ export YO_ZSH="$YO/zsh"
 export YO_GIT="$YO/git"
 export YO_SSH="$YO/ssh"
 export YO_SUBL="$YO/sublime-text"
-export YO_HOMESTEAD="$YO/.homestead"
 
 # Target paths
 MY_HOME="$HOME"
@@ -22,7 +21,6 @@ export MY_SSH="$MY_HOME/.ssh"
 export MY_SUBL="$MY_HOME/.config/sublime-text-3"
 export MY_SUBL_INS="$MY_SUBL/Installed\ Packages"
 export MY_SUBL_PKG="$MY_SUBL/Packages"
-export MY_HOMESTEAD="$MY_HOME/.homestead"
 
 echo "\033[1;36mUserland Configuration and More...\033[0m"
 
@@ -39,46 +37,33 @@ echo "\033[0;35mConfiguring git...\033[0m"
 ln -s "$YO_GIT/gitignore" "$MY_HOME/.gitignore"
 ln -s "$YO_GIT/gitconfig" "$MY_HOME/.gitconfig"
 
-# Run O/S specific install
-if [ -d "/Users" ]; then
-    export MY_SUBL="$MY_HOME/Library/Application\ Support/Sublime\ Text\ 3"
-  	./install_mac.sh
-else
-	./install_linux.sh
-fi
-
 # Set up .bin
 echo "\033[0;37mCreating local executables...\033[0m"
 if [ ! -d "$MY_BIN" ]; then
     mkdir "$MY_BIN"
 fi
-
-# Set up composer
-echo "\033[0;32mGetting composer and global PHP packages...\033[0m"
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar "$MY_BIN"
-composer global require phpunit/phpunit
-composer global require squizlabs/php_codesniffer
-composer global require fabpot/php-cs-fixer
-composer global require phpmd/phpmd
-composer global require laravel/homestead
-
-# Set up node
-./update-node.sh
-
-# Set up Sublime Text
-echo "\033[0;35mConfiguring Sublime Text...\033[0m"
-if [ ! -d "$MY_SUBL" ]; then
-    mkdir -p "$MY_SUBL_PKG"
-    mkdir -p "$MY_SUBL_PKG/User"
+if [ ! -d "$MY_HOME" ]; then
+    mkdir "$MY_BIN"
 fi
 
-wget "https://packagecontrol.io/Package%20Control.sublime-package" -O "$MY_SUBL_INS/Package\ Control.sublime-package"
-ln -s "$YO_SUBL/*.sublime-*" "$MY_SUBL_PKG/User/"
+# Setup ZSH
+echo "\033[1;35mConfiguring ZSH...\033[0m"
 
-# Set up Homestead
-vagrant box add laravel/homestead
-ln -s "$YO_HOMESTEAD" "$MY_HOMESTEAD"
-homestead up
+curl -L git.io/antigen > $MY_HOME/antigen.zsh
+ln -s "$YO_ZSH/antigenrc" "$MY_HOME/.antigenrc"
+ln -s "$YO_ZSH/zshrc" "$MY_HOME/.zshrc"
+ln -s "$YO_ZSH" "$MY_ZSH"
+
+ZSH_PATH=`which zsh`
+if [ $SHELL != $ZSH_PATH ]; then
+  echo "\033[1;35mYour password may be required to set zsh as default\033[0m"
+  chsh -s $ZSH_PATH
+fi
+
+if [ -d "/Users" ]; then
+    ./install_macos.sh
+else
+    ./install_linux.sh
+fi
 
 echo 'Setup complete'

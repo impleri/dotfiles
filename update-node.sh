@@ -2,7 +2,9 @@
 
 set -e
 
-NODEJS_VERSION="10.9.0"
+LTS_VERSION=$(curl https://nodejs.org/dist/index.json | jq -r 'map(select(.lts))[0].version')
+LATEST_VERSION=$(curl https://nodejs.org/dist/index.json | jq -r '.[0].version')
+NODEJS_VERSION=$LATEST_VERSION
 
 MY_HOME="$HOME"
 if [ -z "$MY_HOME" ]; then
@@ -12,7 +14,7 @@ MY_NODE="$MY_HOME/.nodejs"
 OLD_NODE="$MY_HOME/.nodejs.old"
 NODE_LIST="$MY_HOME/npm-list.txt"
 
-PACKAGES="flow-bin create-react-app create-react-native-app lerna"
+PACKAGES=""
 
 if [ -d "$OLD_NODE" ]; then
     echo "\033[0;32mRemoving old backup copy of Node...\033[0m"
@@ -29,10 +31,12 @@ fi
 
 # Set up node
 echo "\033[0;32mInstalling NodeJS $NODEJS_VERSION into userland...\033[0m"
-wget "http://nodejs.org/dist/v$NODEJS_VERSION/node-v$NODEJS_VERSION-linux-x64.tar.gz"
-tar xzf "node-v$NODEJS_VERSION-linux-x64.tar.gz"
-rm "node-v$NODEJS_VERSION-linux-x64.tar.gz"
-mv "node-v$NODEJS_VERSION-linux-x64" "$MY_NODE"
+wget "http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x64.tar.gz"
+tar xzf "node-$NODEJS_VERSION-linux-x64.tar.gz"
+rm "node-$NODEJS_VERSION-linux-x64.tar.gz"
+mv "node-$NODEJS_VERSION-linux-x64" "$MY_NODE"
 
-echo "\033[0;32mInstalling global Node packages...\033[0m"
-npm -g install $PACKAGES
+if [ ! -z "$PACKAGES" ]; then
+    echo "\033[0;32mInstalling global Node packages...\033[0m"
+    npm -g install $PACKAGES
+fi
