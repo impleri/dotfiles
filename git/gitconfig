@@ -7,6 +7,7 @@
 	whitespace = fix
 [core]
 	autocrlf = input
+	editor = nano
 	excludesfile = ~/.gitignore
 [diff]
 	renamelimit = 9000000

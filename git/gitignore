@@ -41,7 +41,6 @@ sites/default
 .scss-cache
 
 # Local .env files
-/.env
 *.env.local
 
 # Local caching
