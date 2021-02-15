@@ -1,0 +1,22 @@
+antigen use oh-my-zsh
+
+antigen bundle robbyrussell/oh-my-zsh plugins/common-aliases
+antigen bundle robbyrussell/oh-my-zsh plugins/docker
+antigen bundle robbyrussell/oh-my-zsh plugins/docker-compose
+# antigen bundle robbyrussell/oh-my-zsh plugins/dotenv
+antigen bundle robbyrussell/oh-my-zsh plugins/git
+antigen bundle robbyrussell/oh-my-zsh plugins/git-hubflow
+antigen bundle robbyrussell/oh-my-zsh plugins/git-flow
+antigen bundle robbyrussell/oh-my-zsh plugins/last-working-dir
+antigen bundle robbyrussell/oh-my-zsh plugins/npm
+antigen bundle robbyrussell/oh-my-zsh plugins/wd
+antigen bundle robbyrussell/oh-my-zsh plugins/yarn
+antigen bundle MichaelAquilina/zsh-you-should-use
+# antigen bundle xav-b/zsh-extend-history
+antigen bundle qianxinfeng/zsh-vscode
+antigen bundle leonhartX/docker-machine-zsh-completion
+antigen bundle $HOME/.its-my-zsh/plugins/personal --no-local-clone
+
+antigen theme denysdovhan/spaceship-prompt
+
+antigen apply
