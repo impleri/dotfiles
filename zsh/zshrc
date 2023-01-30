@@ -5,7 +5,7 @@ export SPACESHIP_HOST_SHOW=always
 export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_BATTERY_THRESHOLD=60
-export SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW=false
+export SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE=false
 export SPACESHIP_EXIT_CODE_SHOW=true
 export SPACESHIP_PROMPT_ORDER=(
   user          # Username section
@@ -30,11 +30,11 @@ export SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-source $HOME/antigen.zsh
-antigen init $HOME/.antigenrc
+source $HOME/.antidote/antidote.zsh
+antidote load
 
 # User configuration
-
+export JAVA_HOME="/usr/lib/jvm/java-18-openjdk-amd64"
 export GOPATH="${HOME}/workspace/go"
 export ANDROID_HOME="${HOME}/workspace/android"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
@@ -43,6 +43,7 @@ export PATH="${ANDROID_HOME}/cmdline-tools/latest:${ANDROID_HOME}/emulator:${AND
 export PATH="${HOME}/.yarn/bin:${HOME}/.nodejs/bin:$PATH"
 export PATH="${HOME}/workspace/android-studio/bin:$PATH"
 export PATH="${HOME}/.local/bin:$PATH"
+export PATH="${HOME}/.gradle/gradle-7.6//bin:$PATH"
 export PATH="${HOME}/.bin:$PATH"
 
 # MacOS paths

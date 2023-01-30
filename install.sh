@@ -17,6 +17,7 @@ if [ -z "$MY_HOME" ]; then
     MY_HOME="~"
 fi
 export MY_BIN="$MY_HOME/.bin"
+export MY_ANTIDOTE="$MY_HOME/.antidote"
 export MY_ZSH="$MY_HOME/.its-my-zsh"
 export MY_SSH="$MY_HOME/.ssh"
 export MY_SUBL="$MY_HOME/.config/sublime-text-3"
@@ -54,8 +55,8 @@ ln -s "$YO_CODE/settings.json" "$MY_HOME/.config/Code/User/settings.json"
 # Setup ZSH
 echo "\033[1;35mConfiguring ZSH...\033[0m"
 
-curl -L git.io/antigen > $MY_HOME/antigen.zsh
-ln -s "$YO_ZSH/antigenrc" "$MY_HOME/.antigenrc"
+git clone --depth=1 https://github.com/mattmc3/antidote.git ${MY_ANTIDOTE}
+ln -s "$YO_ZSH/plugins_rc" "$MY_HOME/.zsh_plugins.txt"
 ln -s "$YO_ZSH/zshrc" "$MY_HOME/.zshrc"
 ln -s "$YO_ZSH" "$MY_ZSH"
 

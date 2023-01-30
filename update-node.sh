@@ -4,7 +4,7 @@ set -e
 
 LTS_VERSION=$(curl https://nodejs.org/dist/index.json | jq -r 'map(select(.lts))[0].version')
 LATEST_VERSION=$(curl https://nodejs.org/dist/index.json | jq -r '.[0].version')
-NODEJS_VERSION=$LATEST_VERSION
+NODEJS_VERSION=$LTS_VERSION
 
 MY_HOME="$HOME"
 if [ -z "$MY_HOME" ]; then

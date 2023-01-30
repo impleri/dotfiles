@@ -1,0 +1,21 @@
+belak/zsh-utils path:completion
+
+zsh-users/zsh-completions
+
+gradle/gradle-completion
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/common-aliases
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/docker-compose
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-hubflow
+ohmyzsh/ohmyzsh path:plugins/git-flow
+ohmyzsh/ohmyzsh path:plugins/last-working-dir
+ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/wd
+ohmyzsh/ohmyzsh path:plugins/yarn
+
+MichaelAquilina/zsh-you-should-use
+
+spaceship-prompt/spaceship-prompt
