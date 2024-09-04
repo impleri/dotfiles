@@ -40,7 +40,7 @@ export ANDROID_HOME="${HOME}/workspace/android"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 export PATH="${HOME}/.bin:$(go env GOPATH)/bin:$PATH"
 export PATH="${ANDROID_HOME}/cmdline-tools/latest:${ANDROID_HOME}/emulator:${ANDROID_HOME}/platform-tools:$PATH"
-export PATH="${HOME}/.yarn/bin:${HOME}/.nodejs/bin:$PATH"
+export PATH="${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin:${HOME}/.nodejs/bin:$PATH"
 export PATH="${HOME}/workspace/android-studio/bin:$PATH"
 export PATH="${HOME}/.local/bin:$PATH"
 export PATH="${HOME}/.gradle/gradle-7.6//bin:$PATH"
@@ -49,7 +49,24 @@ export PATH="${HOME}/.bin:$PATH"
 # MacOS paths
 if [ -d "/Users" ]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-  export PATH="$PATH:${HOME}/Library/Python/2.7/bin"
+  export PATH="$(brew --prefix)/opt/python@3.11/libexec/bin:$PATH:${HOME}/Library/Python/2.7/bin"
+fi
+
+if [ -d "/usr/local/opt/nvm" ]; then
+  source /usr/local/opt/nvm/nvm.sh
+fi
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+fi
+
+export SBT_OPTS="-Xmx10G -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -Xss2M"
+export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.15"
+
+if command -v minikube 1>/dev/null 2>&1; then
+  eval $(minikube docker-env)
 fi
 
 # Preferred editor for local and remote sessions
@@ -58,3 +75,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='open'
 fi
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi

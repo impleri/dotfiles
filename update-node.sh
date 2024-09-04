@@ -30,11 +30,16 @@ if [ -d "$MY_NODE" ]; then
 fi
 
 # Set up node
-echo "\033[0;32mInstalling NodeJS $NODEJS_VERSION into userland...\033[0m"
-wget "http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x64.tar.gz"
-tar xzf "node-$NODEJS_VERSION-linux-x64.tar.gz"
-rm "node-$NODEJS_VERSION-linux-x64.tar.gz"
-mv "node-$NODEJS_VERSION-linux-x64" "$MY_NODE"
+echo "\033[0;32mInstalling NodeJS $NODEJS_VER SION into userland...\033[0m"
+if [ -d "/Users" ]; then
+  wget -O "node-$NODEJS_VERSION.tar.gz" "http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-darwin-x64.tar.gz"
+else
+  wget -O "node-$NODEJS_VERSION.tar.gz" "http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x64.tar.gz"
+fi
+
+tar xzf "node-$NODEJS_VERSION.tar.gz"
+rm "node-$NODEJS_VERSION.tar.gz"
+mv "node-$NODEJS_VERSION" "$MY_NODE"
 
 if [ ! -z "$PACKAGES" ]; then
     echo "\033[0;32mInstalling global Node packages...\033[0m"

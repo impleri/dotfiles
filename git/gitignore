@@ -1,6 +1,9 @@
 # Mac
 .DS_Store
 
+# Idea
+*.iml
+
 # Eclipse
 *.pydevproject
 .project
@@ -41,6 +44,7 @@ sites/default
 .scss-cache
 
 # Local .env files
+/docker-compose.override.yml
 *.env.local
 
 # Local caching
